@@ -53,14 +53,21 @@ export default function App() {
       setShowScore(true);
     }
   };
+  const retake = () => {
+    setShowScore(false);
+    setCurrentQuestion(0);
+    setScore(0);
+  };
   return (
     <div className="app">
       {/* HINT: replace "false" with logic to display the 
       score when the user has answered all the questions */}
       {showScore ? (
         <div className="score-section">
-          You scored 1 out of {questions.length}
-          <button className="retake-button">Retake</button>
+          You scored {score} out of {questions.length}
+          <button className="retake-button" onClick={retake}>
+            Retake
+          </button>
         </div>
       ) : (
         <>
