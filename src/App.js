@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 export default function App() {
+  //questions//
   const questions = [
     {
       questionText: "What is the capital of France?",
@@ -39,9 +40,13 @@ export default function App() {
       ],
     },
   ];
+
+  //state//
   const [showScore, setShowScore] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
+
+  //submit function//
   const handleOnclick = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
@@ -53,6 +58,8 @@ export default function App() {
       setShowScore(true);
     }
   };
+
+  //retake function//
   const retake = () => {
     setShowScore(false);
     setCurrentQuestion(0);
@@ -60,8 +67,6 @@ export default function App() {
   };
   return (
     <div className="app">
-      {/* HINT: replace "false" with logic to display the 
-      score when the user has answered all the questions */}
       {showScore ? (
         <div className="score-section">
           You scored {score} out of {questions.length}
